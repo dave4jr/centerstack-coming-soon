@@ -1,0 +1,160 @@
+/*===========================
+ *  Author:		 Dave Luke Jr
+ *  Company:	 CenterStack
+ *  Description:	 Sass Global Variables
+ *===========================*/
+
+
+
+/*==================================================
+	Font  &  Colors
+==================================================*/
+ $font-family: "Raleway", "Helvetica Neue", Helvetica, sans-serif;
+
+$grey: #f7f8fa;
+$blue: #445685;
+$green: #64a8a7;
+$teal: #2D757D;
+$red: #af4d52;
+$orange: #ebb16a;
+$jade: #12c3ac;
+$tan: #cabdaa;
+$black: #000000;
+$white: #fff;
+
+$grey-light: rgba(247, 248, 250, .35);
+$blue-light: rgba(68, 86, 133, .5);
+$green-light: rgba(100, 168, 167, .35);
+$teal-light: rgba(45, 117, 125, .35);
+$red-light: rgba(175, 77, 82, .35);
+$orange-light: rgba(235, 177, 106, .35);
+$tan-light: rgba(202, 189, 170, .35);
+$black-light: rgba(0, 0, 0, .35);
+
+$grey-mid: #F5F5F5;
+$blue-mid: rgba(68, 86, 133, .75);
+$green-mid: rgba(100, 168, 167, .75);
+$teal-mid: rgba(45, 117, 125, .75);
+$red-mid: rgba(175, 77, 82, .75);
+$orange-mid: rgba(235, 177, 106, .75);
+$tan-mid: rgba(202, 189, 170, .75);
+$black-mid: #444444;
+
+$grey-dark: #C0C0C0;
+$blue-dark: #3c4c70;
+$green-dark: #2a6a72;
+
+$text-grey-light: #CEE0EA;
+$text-grey: #8c989f;
+$text-grey-mid: #737C83;
+$text-black-light: #3E434A;
+$text-black: #333333;
+$text-black-sub: #777;
+$text-black-mid: #444444;
+$text-black-real: #000000;
+
+$form-blue: rgba(68, 86, 133, .8);
+$form-blue-light: rgba(121, 153, 235, .8);
+$form-teal: rgba(45, 117, 125, .8);
+$form-orange: rgba(235, 177, 106, .5);
+
+$border-grey: #DDDDDD;
+$border-grey-light: #EEE;
+
+$shadow-color-light: rgba(0, 0, 0, .25);
+$shadow-color-middle: rgba(0, 0, 0, .5);
+$shadow-color-dark: rgba(0, 0, 0, .9);
+
+$section: #F9F9F9;
+
+
+/*==================================================
+	Breakpoints / Breakpoint Container Widths
+==================================================*/
+$xs: 767px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$xl: 1400px;
+
+$xs-container: 100%;
+$sm-container: 750px;
+$md-container: 970px;
+$lg-container: 1170px;
+$xl-container: 1170px;
+
+
+/*==================================================
+	Flexbox Outline Colors
+==================================================*/
+$flex-row-outline: #009966;
+$flex-col-outline: #ffcc00 ;
+$box-outline: #66ccff;;
+$space-outline: #CC0000;
+
+
+/*==================================================
+	Mixins
+==================================================*/
+@mixin screen($size, $class...) {
+	@if $size == "xs" {
+		@media (max-width:$xs) {
+			#{$class} { width: $xs-container; }
+		}
+	}
+	@else if $size == "sm" {
+		@media (min-width:$sm) {
+			#{$class} { width: $sm-container; }
+		}
+	}
+	@else if $size == "md" {
+		@media (min-width:$md) {
+			#{$class} { width: $md-container; }
+		}
+	}
+	@else if $size == "lg" {
+		@media (min-width:$lg) {
+			#{$class} { width: $lg-container; }
+		}
+	}
+	@else if $size == "xl" {
+		@media (min-width:$xl) {
+			#{$class} { width: $xl-container; }
+		}
+	}
+}
+
+@mixin device($device) {
+	@if $device== "phone" {
+		@media (max-width:$xs) { @content; }
+	}
+	@else if $device == "computer" {
+		@media (min-width:$sm) { @content; }
+	}
+}
+
+/*==================================================
+	Mixin - Maintain Aspect Ratio
+==================================================*/
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+
+
+
+
